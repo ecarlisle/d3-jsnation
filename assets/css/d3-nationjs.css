@@ -4,10 +4,16 @@ body {
 	margin: 10px;
 }
 
-.subtitle {
+h2 {
 	border: solid 1px #555;
 	border-width: 1px 0;
 	color: #FFF;
+	cursor: pointer;
 	display: inline-block;
 	padding: 10px;
 }
+
+.shadow {
+  -moz-box-shadow:    8px 8px 5px 0px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.7);
+  box-shadow:         8px 8px 5px 0px rgba(0, 0, 0, 0.7);
