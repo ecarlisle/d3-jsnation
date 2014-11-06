@@ -1,0 +1,19 @@
+{
+  "name": "d3-nationjs",
+  "version": "0.0.0",
+  "description": "Dazzling Data Depiction with D3.JS",
+  "main": "index.html",
+  "author": "Eric Carlisle",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ecarlisle/d3-nationjs.git"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "http-server": "^0.7.2",
+    "watch": "^0.13.0"
+  }
+}

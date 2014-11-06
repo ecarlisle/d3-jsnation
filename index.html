@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<script src="/bower_components/d3/d3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/bower_components/normalize.css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/d3-nationjs.css" />
+	<style>
+
+	</style>
+</head>
+<body>
+
+	<div class="d3"></div>
+	<div class="jq"></div>
+
+
+	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script>
+
+		var jq_select = $('body div.jq');
+
+		jq_select.append($('<h2></h2>')
+			 .text('DOM Manipulation with jQuery')
+			 .attr('title','DOM Manipulation with jQuery')
+			 .css('background','#396')
+			 .addClass('subtitle')
+			 .appendTo(jq_select)
+		 );
+
+		console.log(jq_select);
+
+		var d3_select = d3.select('body div.d3');
+
+		d3_select.append('h2').text('DOM Manipulation with D3')
+			 			 .attr('title','DOM Manipulation with D3')
+			 			 .style('background','#369')
+			 			 .classed('subtitle','true');
+
+		console.log(d3_select);
+
+	</script>
+</body>
+</html>

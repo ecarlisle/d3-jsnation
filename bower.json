@@ -1,0 +1,17 @@
+{
+  "name": "d3-nationjs",
+  "version": "0.0.0",
+  "authors": [
+    "Eric Carlisle <eric@ericcarlisle.com>"
+  ],
+  "description": "Dazzling Data Depiction with D3.JS",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
