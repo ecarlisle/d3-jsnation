@@ -30,6 +30,7 @@
 			 .appendTo(jq_select)
 		);
 
+		/*
 		// jQuery event handling.
 		$('body h2.jq').on('mouseover',function(e) {
 			$(this).addClass("shadow");
@@ -37,10 +38,11 @@
 			$(this).removeClass("shadow");
 		});
 
-		// jQuery data fetch.
-		$.getJSON('data/jq-d3-comparison.json', function(data) {
+		// jQuery data retrieval.
+		$.getJSON('data/jq-d3-comp.json', function(data) {
 			$('body h2.jq').text(data.quotes[0]);
 		});
+		*/
 
 		// D3 selector wih WC3 Selector API.
 		var d3_select = d3.select('body div.d3');
@@ -51,6 +53,7 @@
 		  .style('background','#369')
 		  .classed('d3', true);
 
+		/*
 		// D3 event handling.
 		d3.select('body h2.d3')
 			.on('mouseover',function(d) {
@@ -59,10 +62,11 @@
 				d3.select(this).classed('shadow', false);
 		});
 
-		// D3 data fetch.
-		d3.json('data/jq-d3-comparison.json', function(err, data) {
+		// D3 data retrieval.
+		d3.json('data/jq-d3-comp.json', function(err, data) {
 			d3.select('body h2.d3').text(data.quotes[1]);
 		});
+		*/
 
 	</script>
 </body>
