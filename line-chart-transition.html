@@ -14,7 +14,7 @@
 
 	<!-- Line Chart -->
 	<div>
-		<div class="line-chart"></div>
+		<div class="line-chart line-chart-transition"></div>
 	</div>
 
 	<!-- Line Chart Buttons -->
@@ -28,8 +28,8 @@
 	<script>
 	
 		var data1 = [10, 7, 3, 5, 4, 9, 10, 8],
-			data2 = [9, 10, 4, 8, 5, 7],
-			data3 = [4, 7, 10, 8, 9, 4, 8, 5, 8, 8, 6, 5];
+			data2 = [9, 10, 4, 8, 5, 7, 3, 6],
+			data3 = [4, 7, 10, 8, 5, 8, 8, 6];
 
 
 		function renderGraph(data) {
@@ -39,25 +39,37 @@
 				.data(data)
 				.enter()
 				.append('div')
-				.classed('line-chart-bar',true);
+				.classed('line-chart-bar',true)
+				.style('width', 0);
 
 			// UPDATE - Bind DOM elements with data.  Add variable styling.
 			d3.select('.line-chart').selectAll('div.line-chart-bar')
 				.data(data)
+				.transition()
+				.duration(1000)
+				//.ease('linear')
+				//.ease('exp')
+				//.ease('elastic')
+				//.style({'font-size':'12px', 'background':'369'})
 				.text(function(d,i){
-					console.log('data: ' + d + ', index: ' + i);
 					return d;
 				})
 				.style('width', function(d,i){
 					return (d * 50) + 'px';
-				});
+				})
+				.transition()
+				.duration(500);
+				//.style({'font-size':'20px', 'background':'#94a838'})
+
 
 			// EXIT - Remove DOM elements not needed.
 			d3.select('.line-chart').selectAll('div.line-chart-bar')
 				.data(data)
 				.exit()
+				.transition()
+				.duration(4000)
+				.style('background','red')
 				.remove();
-
 		}
 
 		// Bind render events to buttons

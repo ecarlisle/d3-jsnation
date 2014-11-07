@@ -32,6 +32,10 @@ a {
 	min-width: 400px;
 }
 
+.line-chart-transition {
+	width: 600px;
+}
+
 .line-chart-bar {
 	background: #369;
 	color: #fff;
@@ -49,4 +53,9 @@ a {
 	display: inline-block;
 	margin: 10px;
 	padding: 5px;
+}
+
+li {
+	font-size: 20px;
+	margin-bottom: 10px;
 }
