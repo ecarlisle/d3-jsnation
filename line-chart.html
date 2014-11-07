@@ -31,6 +31,12 @@
 			data2 = [9, 10, 4, 8, 5, 7],
 			data3 = [4, 7, 10, 8, 9, 4, 8, 5, 8, 8, 6, 5];
 
+		// ----- MOAR -----
+		/*
+		var data1 = [{'value': 10}, {'value':7}, {'value':3}, {'value':5}, {'value':4}, {'value':9}, {'value':10},{'value': 8}],
+			data2 = [{'value': 9}, {'value': 10}, {'value': 4}, {'value': 8}, {'value': 5}, {'value': 7}],
+			data3 = [{'value': 4}, {'value': 7}, {'value': 10}, {'value': 8}, {'value': 9}, {'value': 4}, {'value': 8}, {'value': 5}, {'value': 8}, {'value': 8}, {'value': 6}, {'value': 5}];
+		*/
 
 		function renderGraph(data) {
 
@@ -42,6 +48,7 @@
 				.classed('line-chart-bar',true);
 
 			// UPDATE - Bind DOM elements with data.  Add variable styling.
+			console.log('UPDATE')
 			d3.select('.line-chart').selectAll('div.line-chart-bar')
 				.data(data)
 				.text(function(d,i){
@@ -54,9 +61,37 @@
 
 			// EXIT - Remove DOM elements not needed.
 			d3.select('.line-chart').selectAll('div.line-chart-bar')
+			  .data(data)
+			  .exit()
+			  .remove();
+		
+			/*
+			// ----- MOAR -----
+			// ENTER - Build DOM elements we will need.  Add constant styling.
+			d3.select('.line-chart').selectAll('div.line-chart-bar')
 				.data(data)
-				.exit()
-				.remove();
+				.enter()
+				.append('div')
+				.classed('line-chart-bar',true);
+
+			console.log('UPDATE')
+			// UPDATE - Bind DOM elements with data.  Add variable styling.
+			d3.select('.line-chart').selectAll('div.line-chart-bar')
+				.data(data)
+				.text(function(d,i){
+					console.log('data: ' + d.value + ', index: ' + i);
+					return d.value;
+				})
+				.style('width', function(d,i){
+					return (d.value * 50) + 'px';
+				});
+
+			// EXIT - Remove DOM elements not needed.
+			d3.select('.line-chart').selectAll('div.line-chart-bar')
+			  .data(data)
+			  .exit()
+			  .remove();
+			*/
 
 		}
 
