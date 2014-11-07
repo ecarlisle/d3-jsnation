@@ -36,6 +36,10 @@ a {
 	width: 600px;
 }
 
+.line-chart-scale {
+	width: 1010px;
+}
+
 .line-chart-bar {
 	background: #369;
 	color: #fff;
