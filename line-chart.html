@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<script src="/bower_components/d3/d3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/bower_components/normalize.css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/d3-nationjs.css" />
+</head>
+<body>
+
+	<!-- Line Chart -->
+	<div>
+		<div class="line-chart"></div>
+	</div>
+
+	<!-- Line Chart Buttons -->
+	<div>
+		<div id="line-chart-button1" class="line-chart-button">Plot Data 1</div>
+		<div id="line-chart-button2" class="line-chart-button">Plot Data 2</div>
+		<div id="line-chart-button3" class="line-chart-button">Plot Data 3</div>
+	</div>
+
+	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script>
+	
+		var data1 = [10, 7, 3, 5, 4, 9, 10, 8],
+				data2 = [9, 10, 4, 8, 5, 7],
+				data3 = [4, 7, 10, 8, 9, 4, 8, 5, 8, 8, 6, 5];
+
+
+		function renderGraph(data) {
+
+			// ENTER - Build DOM elements we will need.  Add constant styling.
+			d3.select('.line-chart').selectAll('div.line-chart-bar')
+				.data(data)
+				.enter()
+				.append('div')
+				.classed('line-chart-bar',true)
+
+			// UPDATE - Bind DOM elements with data.  Add variable styling.
+			d3.select('.line-chart').selectAll('div.line-chart-bar')
+				.data(data)
+				.style('width', function(d,i){
+					return (d * 50) + 'px';
+				})
+				.text(function(d,i){
+					console.log('data: ' + d + ', index: ' + i);
+					return d;
+				});
+
+			// EXIT - Remove DOM elements not needed.
+			d3.select('.line-chart').selectAll('div.line-chart-bar')
+				.data(data)
+				.exit()
+				.remove();
+
+		}
+
+		// Bind render events to buttons
+		d3.select('#line-chart-button1').on('click',function(e){
+			renderGraph(data1);
+		});
+
+		d3.select('#line-chart-button2').on('click',function(e){
+			renderGraph(data2);
+		});
+
+		d3.select('#line-chart-button3').on('click',function(e){
+			renderGraph(data3);
+		});
+
+	</script>
+</body>
+</html>

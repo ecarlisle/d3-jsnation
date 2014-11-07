@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<script src="/bower_components/d3/d3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/bower_components/normalize.css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/css/d3-nationjs.css" />
+</head>
+<body>
+
+	<h1>jQuery, D3 Comparison</h1>
+
+	<div class="jq"></div>
+	<div class="d3"></div>
+
+	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<script>
+
+		// jQuery selector wih Sizzle.
+		var jq_select = $('body div.jq');
+
+		// jQuery DOM manipulation.
+		jq_select.append($('<h2/>')
+			 .text('DOM Manipulation with jQuery')
+			 .attr('title','DOM Manipulation with jQuery')
+			 .css('background','#396')
+			 .addClass('jq')
+			 .appendTo(jq_select)
+		);
+
+		/*
+		// jQuery event handling.
+		$('body h2.jq').on('mouseover',function(e) {
+			$(this).addClass("shadow");
+		}).on('mouseout',function(e){
+			$(this).removeClass("shadow");
+		});
+
+		// jQuery data retrieval.
+		$.getJSON('data/jq-d3-comp.json', function(data) {
+			$('body h2.jq').text(data.quotes[0]);
+		});
+		*/
+
+		// D3 selector wih WC3 Selector API.
+		var d3_select = d3.select('body div.d3');
+
+		// jQuery DOM manipulation.
+		d3_select.append('h2').text('DOM Manipulation with D3')
+		  .attr('title','DOM Manipulation with D3')
+		  .style('background','#369')
+		  .classed('d3', true);
+
+		/*
+		// D3 event handling.
+		d3.select('body h2.d3')
+			.on('mouseover',function(d) {
+				d3.select(this).classed('shadow', true);
+		}).on('mouseout',function(d){
+				d3.select(this).classed('shadow', false);
+		});
+
+		// D3 data retrieval.
+		d3.json('data/jq-d3-comp.json', function(err, data) {
+			d3.select('body h2.d3').text(data.quotes[1]);
+		});
+		*/
+
+	</script>
+</body>
+</html>

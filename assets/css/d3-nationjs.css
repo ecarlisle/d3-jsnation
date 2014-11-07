@@ -11,9 +11,42 @@ h2 {
 	cursor: pointer;
 	display: inline-block;
 	padding: 10px;
+	margin: 0 0 20px 0;
+}
+
+a {
+	color: #369;
 }
 
 .shadow {
   -moz-box-shadow:    8px 8px 5px 0px rgba(0, 0, 0, 0.7);
   -webkit-box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.7);
   box-shadow:         8px 8px 5px 0px rgba(0, 0, 0, 0.7);
+}
+
+.line-chart {
+	border: solid 1px #333;
+	border-width: 0 0 1px 1px;
+	display: inline-block;
+	min-height: 200px;
+	min-width: 400px;
+}
+
+.line-chart-bar {
+	background: #369;
+	color: #fff;
+	border: solid 1px #036;
+	border-width: 1px 1px 1px 0;
+	margin: 5px 0;
+	padding: 5px;
+	text-align: right;
+}
+
+.line-chart-button {
+	background: #396;
+	border: solid 1px #333;
+	color: #fff;
+	display: inline-block;
+	margin: 10px;
+	padding: 5px;
+}

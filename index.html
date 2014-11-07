@@ -12,62 +12,13 @@
 </head>
 <body>
 
-	<div class="jq"></div>
-	<div class="d3"></div>
+	<h1>Dazzling Data Depiction with D3.JS</h1>
+	<ul class="nav">
+		<li><a href="jq-d3-comp.html">jQuery, D3 Comparison</a></li>
+		<li><a href="line-chart.html">Simple Line Chart</a></li>
+	</ul>
 
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-	<script>
 
-		// jQuery selector wih Sizzle.
-		var jq_select = $('body div.jq');
-
-		// jQuery DOM manipulation.
-		jq_select.append($('<h2/>')
-			 .text('DOM Manipulation with jQuery')
-			 .attr('title','DOM Manipulation with jQuery')
-			 .css('background','#396')
-			 .addClass('jq')
-			 .appendTo(jq_select)
-		);
-
-		/*
-		// jQuery event handling.
-		$('body h2.jq').on('mouseover',function(e) {
-			$(this).addClass("shadow");
-		}).on('mouseout',function(e){
-			$(this).removeClass("shadow");
-		});
-
-		// jQuery data retrieval.
-		$.getJSON('data/jq-d3-comp.json', function(data) {
-			$('body h2.jq').text(data.quotes[0]);
-		});
-		*/
-
-		// D3 selector wih WC3 Selector API.
-		var d3_select = d3.select('body div.d3');
-
-		// jQuery DOM manipulation.
-		d3_select.append('h2').text('DOM Manipulation with D3')
-		  .attr('title','DOM Manipulation with D3')
-		  .style('background','#369')
-		  .classed('d3', true);
-
-		/*
-		// D3 event handling.
-		d3.select('body h2.d3')
-			.on('mouseover',function(d) {
-				d3.select(this).classed('shadow', true);
-		}).on('mouseout',function(d){
-				d3.select(this).classed('shadow', false);
-		});
-
-		// D3 data retrieval.
-		d3.json('data/jq-d3-comp.json', function(err, data) {
-			d3.select('body h2.d3').text(data.quotes[1]);
-		});
-		*/
-
-	</script>
 </body>
 </html>
