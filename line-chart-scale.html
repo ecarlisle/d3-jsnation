@@ -12,6 +12,8 @@
 </head>
 <body>
 
+	<h1>Line Chart Using a Scale</h1>
+
 	<!-- Line Chart -->
 	<div>
 		<div class="line-chart line-chart-scale"></div>
@@ -28,40 +30,50 @@
 	<script>
 	
 		var data1 = [10, 7, 3, 5, 4, 9, 10, 8],
-			  data2 = [9, 10, 4, 8, 5, 7, 3, 6],
-			  data3 = [4, 7, 10, 8, 5, 8, 8, 6];
+			data2 = [9, 10, 4, 8, 5, 7, 3, 6],
+			data3 = [4, 7, 10, 8, 5, 8, 8, 6];
 
-		var scale = d3.scale.linear()
- 								  .domain([1, 10])
- 								  .range([1, 1000]);
+		var pixelScale = d3.scale.linear()
+ 					  	   .domain([1, 10])
+ 					  	   .range([1, 1000]);
+
+		var colorScale = d3.scale.linear()
+ 					  	   .domain([1, 10])
+ 					  	   .range(['#469C34', '#AB3942']);
 
 		function renderGraph(data) {
 
+			// Define the selection.
+			graph = d3.select('.line-chart').selectAll('div.line-chart-bar').data(data);
+
+
 			// ENTER - Build DOM elements we will need.  Add constant styling.
-			d3.select('.line-chart').selectAll('div.line-chart-bar')
-				.data(data)
-				.enter()
+			graph.enter()
 				.append('div')
-				.classed('line-chart-bar',true);
+				.classed('line-chart-bar',true)
+				.style({'width': '0px','background': colorScale.range()[0]});
 
 			// UPDATE - Bind DOM elements with data.  Add variable styling.
-			d3.select('.line-chart').selectAll('div.line-chart-bar')
-				.data(data)
-				.transition()
+			graph.transition()
 				.duration(1000)
 				.text(function(d,i){
-					console.log('data: ' + d + ', index: ' + i);
 					return d;
 				})
-				.style('width', function(d,i){
-					return scale(d) + 'px';
+				.style('width', function(d,i) {
+					console.log(pixelScale(d));
+					return pixelScale(d) + 'px';
 				});
+				/*
+				.style('background', function(d,i) {
+					console.log(colorScale(d));
+					return colorScale(d);
+				});
+				*/	
+
 
 			// EXIT - Remove DOM elements not needed.
-			d3.select('.line-chart').selectAll('div.line-chart-bar')
-				.data(data)
-				.exit()
-				.remove();
+			graph.exit()
+				 .remove();
 
 		}
 
